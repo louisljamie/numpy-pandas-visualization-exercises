@@ -7,6 +7,10 @@ a = np.array([4, 10, 12, 23, -2, -1, 0, 0, 0, -6, 3, -7])
 
 np.a < 0
 
+a.size
+
+neg_num = len(a[a < 0])
+
 negative_numbers = 0
 for number in a:
     if number < 0:
@@ -24,9 +28,12 @@ for number in a:
         positive_numbers += 1
 print(positive_numbers)
 
+pos_num = len(a[a > 0])
+
 # How many even positive numbers are there?
 
-np.a % 2 == 0
+pos_num = np.a % 2 == 0
+
 
 even_positive_numbers = 0
 for number in a:
@@ -37,6 +44,8 @@ print(even_positive_numbers)
 
 #  add 3 to each data point, how many positive numbers would there be?
 
+len(a[a + 3 > 0])
+
 np.a + 3
 
 a_plus_3 = a + 3
@@ -45,6 +54,8 @@ print(a_plus_3)
 
 
 # squared each number, what would the new mean and standard deviation be?
+
+len(a[a ** 2])
 
 np.a ** 2
 
@@ -151,32 +162,34 @@ sum_of_b = sum([sum(row) for row in b])
 
 ## find the min
 
-np.b.min()
+b.min()
 
 min_of_b = min([min(row) for row in b])
 
 ## find the max
 
-np.b.max()
+b.max()
+
+
 
 max_of_b = max([max(row) for row in b])
 
 ## find the average
 
-np.b.mean()
+b.mean()
 
 mean_of_b = sum([sum(row) for row in b]) / (len(b) * len(b[0]))
 
 ## find the product
 
-np.b.prod()
+b.prod()
 
 product_of_b = 1
 
 
 ## find the list of squares
 
-np.b ** 2
+b ** 2
 
 squares_of_b = [number ** 2 for row in b for number in row]
 
@@ -188,7 +201,7 @@ sum_of_b = 0
 for row in b:
     sum_of_b += sum(row)
 
-np.b.sum()
+b.sum()
 
 
 
@@ -197,9 +210,9 @@ min_of_b = min(b[0]) \
     if min(b[0]) <= min(b[1]) \
     else min(b[1])
 
-np.b.min()
+b.min()
 
-np.b.min(axis=1)
+b.min(axis=1)
 
 # Exercise 3 - refactor the following maximum calculation to find the answer with numpy.
 max_of_b = max(b[0]) \
@@ -207,12 +220,12 @@ max_of_b = max(b[0]) \
        max(b[1]) \
     else max(b[1])
 
-np.b.max()
+b.max()
 
 # Exercise 4 - refactor the following using numpy to find the mean of b
 mean_of_b = (sum(b[0]) + sum(b[1])) / (len(b[0]) + len(b[1]))
 
-np.b.mean()
+b.mean()
 
 # Exercise 5 - refactor the following to use numpy for
 # calculating the product of all numbers multiplied together.
@@ -223,7 +236,7 @@ for row in b:
         product_of_b *= number
 
 
-np.b * np.b
+b * np.b
 
 np.b
 
@@ -234,7 +247,7 @@ for row in b:
     for number in row:
         squares_of_b.append(number**2)
 
-np.b ** 2
+b ** 2
 
 # Exercise 7 - refactor using numpy to
 # determine the odds_in_b
@@ -245,7 +258,7 @@ for row in b:
         if(number % 2 != 0):
             odds_in_b.append(number)
 
-np.b % 2 == 1
+b % 2 == 1
 
 
 # Exercise 8 - refactor the following to use numpy to
@@ -257,23 +270,23 @@ for row in b:
         if(number % 2 == 0):
             evens_in_b.append(number)
 
-np.b % 2 == 0
+b % 2 == 0
 
 # Exercise 9 - print out the shape of the array b.
 
-np.b.shape
+b.shape
 
 # Exercise 10 - transpose the array b.
 
-np.b.T
+b.T
 
 # Exercise 11 - reshape the array b to be a single list of 6 numbers. (1 x 6)
 
-np.b.reshape(1, 6)
+b.reshape(1, 6)
 
 # Exercise 12 - reshape the array b to be a list of 6 lists, each containing only 1 number (6 x 1)
 
-np.b.reshape(6, 1)
+b.reshape(6, 1)
 
 ## Setup 3
 c = [
@@ -285,35 +298,35 @@ c = [
 # HINT, you'll first need to make sure that the "c" variable is a numpy array prior to using numpy array methods.
 # Exercise 1 - Find the min, max, sum, and product of c.
 
-np.c.min()
+c.min()
 
 # Exercise 2 - Determine the standard deviation of c.
 
-np.c.std()
+c.std()
 
 # Exercise 3 - Determine the variance of c.
 
-np.c.var()
+c.var()
 
 # Exercise 4 - Print out the shape of the array c
 
-np.c.shape
+c.shape
 
 # Exercise 5 - Transpose c and print out transposed result.
 
-np.c.T
+c.T
 
 # Exercise 6 - Get the dot product of the array c with c.
 
-np.c.dot(np.c)
+c.dot(np.c)
 
 # Exercise 7 - Write the code necessary to sum up the result of c times c transposed. Answer should be 261
 
-np.c.dot(np.c.T).sum()
+c.dot(np.c.T).sum()
 
 # Exercise 8 - Write the code necessary to determine the product of c times c transposed. Answer should be 131681894400.
 
-np.c.dot(np.c.T).prod()
+c.dot(np.c.T).prod()
 
 
 ## Setup 4
@@ -325,41 +338,44 @@ d = [
 
 # Exercise 1 - Find the sine of all the numbers in d
 
-np.d.sin()
+d.sin()
 
 # Exercise 2 - Find the cosine of all the numbers in d
 
-np.d.cos()
+d.cos()
 
 # Exercise 3 - Find the tangent of all the numbers in d
 
-np.d.tan()
+d.tan()
 
 # Exercise 4 - Find all the negative numbers in d
 
-np.d < 0
+d < 0
 
 # Exercise 5 - Find all the positive numbers in d
 
-np.d > 0
+d > 0
 
 # Exercise 6 - Return an array of only the unique numbers in d.
 
-np.d.unique()
+d.unique()
 
 # Exercise 7 - Determine how many unique numbers there are in d.
 
-np.d.unique().size
+d.unique().size
 
 
 # Exercise 8 - Print out the shape of d.
 
-np.d.shape
+d.shape
 
 # Exercise 9 - Transpose and then print out the shape of d.
 
-np.d.T
+d.T
+transpose = d.T
+transpose.shape
+
 
 # Exercise 10 - Reshape d into an array of 9 x 2
 
-np.d.reshape(9, 2)
+d.reshape(9, 2)
