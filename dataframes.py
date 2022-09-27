@@ -44,10 +44,13 @@ data.show_doc('bank')
 
 # data('mpg', show_doc=True) # view the documentation for the dataset
 
+data('mpg', show_doc=True)
 mpg = data('mpg') # load the dataset and store it in a variable
-All the datasets loaded from the pydataset library will be pandas dataframes.
+
+# All the datasets loaded from the pydataset library will be pandas dataframes.
 
 # Copy the code from the lesson to create a dataframe full of student grades.
+
 df = pd.DataFrame(np.random.randint(60, 101, size=(10, 3)), columns=['Math', 'Science', 'English'])
 df['Math'] = mpg.Math.astype('int')
 df['Science'] = mpg.Science.astype('int')
@@ -109,50 +112,78 @@ df.rename(columns={0: 'hwy'}, inplace=True)
 
 # Do any cars have better city mileage than highway mileage?
 
-df.rename(columns={0:'mileage'}, inplace=True)
+df[df.cty > df.hwy]
+
 
 # Create a column named mileage_difference this column should contain the difference between highway and city mileage for each car.
 
-df.rename(columns={0:'mileage_difference'}, inplace=True)
+df['mileage_difference'] = df.hwy - df.cty
+
 
 
 # Which car (or cars) has the highest mileage difference?
 
-df.rename(columns={0:'mileage_difference'}, inplace=True)
+df[df.mileage_difference == df.mileage_difference.max()]
 
 
 # Which compact class car has the lowest highway mileage? The best?
 
-df.rename(columns={0:'mileage_difference'}, inplace=True)
+df[df['class'] == 'compact'].sort_values(by='hwy').head(1)
+
 
 # Create a column named average_mileage that is the mean of the city and highway mileage.
 
-df.rename(columns={0: 'average_mileage'}, inplace=True)
-
+df['average_mileage'] = (df.cty + df.hwy) / 2
 
 # Which dodge car has the best average mileage? The worst?
 
-df.rename(columns={0: 'average_mileage'}, inplace=True)
+df[df.manufacturer == 'dodge'].sort_values(by='average_mileage').head(1)
+
 
 # Which dodge car has the worst?
 
-df.rename(columns={0: 'average_mileage'}, inplace=True)
+df[df.manufacturer == 'dodge'].sort_values(by='average_mileage').tail(1)
 
 
 # Create a column named average_mileage_difference that is the mean of the city and highway mileage.
+# and the city and highway mileage.
 
-the city and highway mileage.
+df['average_mileage_difference'] = (df.average_mileage - df.average_mileage.mean())
 
- the Mammals dataset. Read the documentation for it, and use the data to answer these questions:
-
+# Load the Mammals dataset. Read the documentation for it, and use the data to answer these questions:
 # How many rows and columns are there?
 
-df.rename(columns={0: 'number_of_columns'}, inplace=True)
+df = data('Mammals')
 
 
+# What are the data types?
 
-What are the data types?
+df.dtypes
+
+
 # Summarize the dataframe with .info and .describe
-# What is the the weight of the fastest animal?
+
+df.info.describe()
+
+
+# What is the weight and the fastest animal?
+
+df.sort_values(by='speed').tail(1)
+
+df.sort_values(by='speed').tail(1)
+df.weight.describe()
+
+
 # What is the overal percentage of specials?
+
+df.specials.describe()
+
+
 # How many animals are hoppers that are above the median speed? What percentage is this?
+
+df[(df.hoppers == True) & (df.speed > df.speed.median())].count() / df.count()
+
+# What is the avg average speed of the fastest animal?
+
+df.sort_values(by='speed').tail(1).speed.mean()
+
