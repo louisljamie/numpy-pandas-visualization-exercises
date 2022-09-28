@@ -14,7 +14,7 @@ def get_db_url (username, hostname, password, database):
     return "mysql://{0}:{1}@{2}/{3}".format(username, hostname, password, database)
 
 def get_db_codeup (username = 'mirzakhani',
-                   hostname = 'data.codeup.com',
+                   hostname = '',
                    password =
                    database= input('Please enter the name of the database you want to connect to: ')):
     return "mysql://{0}:{1}@{2}/{3}".format(username, hostname, password, database)
