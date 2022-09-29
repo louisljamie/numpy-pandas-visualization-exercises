@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="08fbb330-fa11-4575-a191-53f643f470a5" name="CodeUp_DB Mapping">
+      <data-sources db="cccb7684-2577-4b4c-acc8-5f58ef96469d" />
+      <scope>
+        <node negative="1">
+          <node kind="database" negative="1">
+            <node kind="schema" negative="1" />
+          </node>
+          <node kind="schema">
+            <name qname="chipotle" />
+            <name qname="employees" />
+            <name qname="farmers_market" />
+            <name qname="fruits_db" />
+            <name qname="grocery_db" />
+            <name qname="home_credit" />
+            <name qname="information_schema" />
+            <name qname="pizza" />
+            <name qname="spam_db" />
+          </node>
+        </node>
+      </scope>
+    </mapping>
+  </component>
+</project>
