@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+
+import matplotlib as plt
 import seaborn as sns
 import requests
 
@@ -70,22 +71,33 @@ df.sort_values(by='passing_english')
 
 df.sort_values(by=['passing_english', 'English'])
 
+
 # Sort the english grades first by passing_english, and then by the actual english grade, similar to how we did in the last step.
 
 df.sort_values(by=['passing_english', 'English'], ascending=[True, False])
 
+
 # Calculate each students overall grade and add it as a column on the dataframe. The overall grade is the average of the math, english, and reading grades.
 
+df['overall_grade'] = df.English / df.Reading / df.Math
+
 df['overall_grade'] = (df.Math + df.Science + df.English) / 3
+
 
 # Load the mpg dataset. Read the documentation for the dataset and use it for the following questions:
 
 df['mpg'] = pd.read_csv(os.path.join(os.))
 df = data('mpg')
 
+mpg.dtypes
+
+mpg.head()
 
 
 # How many rows and columns are there?
+
+mpg.head()
+
 
 df.head()
 
@@ -102,6 +114,7 @@ df.info.describe()
 
 # Rename the cty column to city.
 
+
 df.rename(columns={0: 'cty'}, inplace=True)
 
 
@@ -111,14 +124,13 @@ df.rename(columns={0: 'hwy'}, inplace=True)
 
 
 # Do any cars have better city mileage than highway mileage?
-
+mpg
 df[df.cty > df.hwy]
 
 
 # Create a column named mileage_difference this column should contain the difference between highway and city mileage for each car.
 
 df['mileage_difference'] = df.hwy - df.cty
-
 
 
 # Which car (or cars) has the highest mileage difference?
