@@ -6,44 +6,67 @@ import seaborn as sns
 # Use matplotlib to plot the following equation:
 # y = x^2 - x + 2
 
+# Create the vectors X and Y
+x = np.array(range(100))
+y = x ** 2 - x + 2
+
+# Create the plot
+plt.plot(x,y)
+
+plt.title('y = x^2 - x + 2')
+
+# Show the plot
+plt.show()
+
+
+
+
 y = x**2 - x + 2
 x = range(-100, 100)
 
-
-
-# You'll need to write the code that generates the x and y points.
-plt.plot(x, y)
-plt.title('y = x^2 - x + 2')
+plt.plot(x, y, label='y = x^2 - x + 2')
+plt.legend()
 plt.xlabel('x')
 plt.ylabel('y')
+plt.title('y = x^2 - x + 2')
 plt.show()
 
+
+
+
 # Add an anotation for the point 0, 0, the origin.
+
+
 
 # Add labels to the axes and give the plot a title.
 # Save the plot as a .png file.
 
 plt.savefig('y = x^2 - x + 2.png')
 
-
-# Create and label 4 separate charts for the following equations (choose a range for x that makes sense):
+# ------------------------------------------------------------------------------------------------------------------------------
+# Matplotlib: Create and label 4 separate charts for the following equations (choose a range for x that makes sense):
 
 # y = √ x
 
-# y = x**3
-
-# Matplotlib:
-
+x = np.array(range(100))
 y = np.sqrt(x)
-plt.plot(x, y)
+
+# Create the plot
+plt.plot(x,y)
 plt.title('y = √ x')
 plt.xlabel('x')
 plt.ylabel('y')
 plt.show()
 
 
-y = x**3
-plt.plot(x, y)
+
+# y = x**3
+
+x = np.array(range(100))
+y = x ** 3
+
+# Create the plot
+plt.plot(x,y)
 plt.title('y = x**3')
 plt.xlabel('x')
 plt.ylabel('y')
@@ -51,7 +74,10 @@ plt.show()
 
 
 
-# Combine the figures you created in the last step into one large figure with 4 subplots.
+# Combine the figures you created in the last step into one large figure with
+# 4 subplots.
+
+
 
 plt.subplot(2, 2, 1)
 plt.plot(x, y)
@@ -114,14 +140,5 @@ plt.tight_layout()
 
 plt.show()
 
-# Make a new Jupyter notebook named big_o_notation.ipynb
 
-# Title your chart "Big O Notation"
-# Label your x axis "Elements"
-# Label your y axis "Operations"
-# Label your curves or make a legend for the curves
-#    Use LaTex notation where possible
-
-
-# Curves to graph
 
